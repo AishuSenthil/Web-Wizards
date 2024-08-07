@@ -1,18 +1,33 @@
-// src/pages/Home.js
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import ImageSlider from '../components/ImageSlider';
 
 const Home = () => {
+  const containerStyle = {
+    textAlign: 'center',
+    padding: '20px'
+  };
+
+  const titleStyle = {
+    fontSize: '2em',
+    margin: '0'
+  };
+
+  const subtitleStyle = {
+    fontSize: '1.2em',
+    marginTop: '10px'
+  };
+
   return (
-    <div>
+    <div style={containerStyle}>
+      <h1 style={titleStyle}>Welcome to ShowMOEvents!</h1>
+      <p style={subtitleStyle}>Your local go-to app!</p>
       <ImageSlider />
-      <div>
-        <h2>About the Application</h2>
-        <p>ShowMOEvents is an application designed to help people connect with local events and community posts in Missouri.</p>
-      </div>
-      <Footer />
+      <p>
+<h1>Discover, Connect, and Share with ShowMOEvents!</h1>
+
+Explore local events and connect with people in Missouri through ShowMOEvents. Post your own events, discover exciting gatherings, and engage with your community effortlessly. Join us and make the most of your local scene!
+
+</p>
     </div>
   );
 };

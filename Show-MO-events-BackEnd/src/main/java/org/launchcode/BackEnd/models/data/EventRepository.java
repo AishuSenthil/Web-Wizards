@@ -1,9 +1,7 @@
 package org.launchcode.BackEnd.models.data;
 
 import org.launchcode.BackEnd.models.Event;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public interface EventRepository extends CrudRepository<Event, Integer> {
+public interface EventRepository extends JpaRepository<Event, Integer> {
 }

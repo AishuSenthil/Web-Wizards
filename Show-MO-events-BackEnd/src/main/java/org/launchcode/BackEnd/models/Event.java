@@ -1,39 +1,30 @@
 package org.launchcode.BackEnd.models;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
-import java.util.Objects;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Event extends AbstractEntity {
+public class Event {
 
-    @NotBlank(message = "Name is required")
-    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String name;
+    private String date;
+    private String time;
+    private String details;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @Valid
-    @NotNull
-    private EventDetails eventDetails;
-
-    @ManyToOne
-    @NotNull(message = "Category is required")
-    private EventCategory eventCategory;
-
-    public Event(String name, EventCategory eventCategory) {
-        this.name = name;
-        this.eventCategory = eventCategory;
+    // Getters and Setters
+    public Integer getId() {
+        return id;
     }
 
-    public Event() {}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -43,25 +34,27 @@ public class Event extends AbstractEntity {
         this.name = name;
     }
 
-    public EventCategory getEventCategory() {
-        return eventCategory;
+    public String getDate() {
+        return date;
     }
 
-    public void setEventCategory(EventCategory eventCategory) {
-        this.eventCategory = eventCategory;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public EventDetails getEventDetails() {
-        return eventDetails;
+    public String getTime() {
+        return time;
     }
 
-    public void setEventDetails(EventDetails eventDetails) {
-        this.eventDetails = eventDetails;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    @Override
-    public String toString() {
-        return name;
+    public String getDetails() {
+        return details;
     }
 
+    public void setDetails(String details) {
+        this.details = details;
+    }
 }
